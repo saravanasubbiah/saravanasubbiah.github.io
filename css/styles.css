@@ -1,0 +1,17 @@
+body{
+  background-color:beige;
+}
+h1{
+    color: #66BFBF;
+}
+h3{
+    color: chocolate;
+}
+hr{
+  background-color: black;
+  border-style: none;
+  height: 2px;
+}
+img{
+  height: 100px;
+}
