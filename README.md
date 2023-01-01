@@ -2,4 +2,4 @@
 
 PersonalWebsite
 
-link[https://saravanasubbiah.github.io/]
+[link](https://saravanasubbiah.github.io/)
