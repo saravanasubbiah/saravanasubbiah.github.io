@@ -1,17 +1,26 @@
-body{
-  background-color:beige;
+body {
+  background-color: beige;
 }
-h1{
-    color: #66BFBF;
+
+h1 {
+  color: #66BFBF;
 }
-h3{
-    color: chocolate;
+
+h3 {
+  color: chocolate;
 }
-hr{
+
+hr {
   background-color: black;
   border-style: none;
   height: 2px;
 }
-img{
+
+img {
   height: 100px;
+}
+
+.box {
+  inline-size: 150px;
+  overflow-wrap: break-word;
 }
