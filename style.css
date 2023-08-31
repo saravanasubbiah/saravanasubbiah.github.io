@@ -22,3 +22,11 @@
     color: #ffffff;
     text-shadow: 0 1px 0 #528ecc;
 }
+
+footer {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    background-color: #45a1ff;
+    color: #fff;
+}
