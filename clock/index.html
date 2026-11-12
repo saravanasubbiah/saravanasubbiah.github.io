@@ -6,12 +6,11 @@
 <title>World Clock</title>
 
 <style>
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family: Arial, sans-serif;
+    font-family:Arial,sans-serif;
 }
 
 body{
@@ -34,7 +33,7 @@ body{
 
 .clock-grid{
     display:grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns:repeat(2,1fr);
 }
 
 .clock-card{
@@ -42,6 +41,9 @@ body{
     background:white;
     min-height:140px;
     padding:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
 .country{
@@ -54,7 +56,7 @@ body{
 .time{
     font-size:28px;
     font-weight:bold;
-    color:#2563eb;
+    color:#4169e1;
 }
 
 .date{
@@ -63,16 +65,67 @@ body{
     font-size:15px;
 }
 
-@media(max-width:600px){
+/* Analog Clock */
 
+.analog-clock{
+    width:115px;
+    height:115px;
+    border:4px solid #000;
+    border-radius:50%;
+    position:relative;
+    flex-shrink:0;
+    background:#fff;
+}
+
+.hand{
+    position:absolute;
+    bottom:50%;
+    left:50%;
+    transform-origin:bottom center;
+}
+
+.hour{
+    width:4px;
+    height:28px;
+    background:#000;
+    margin-left:-2px;
+    border-radius:2px;
+}
+
+.minute{
+    width:3px;
+    height:38px;
+    background:#333;
+    margin-left:-1.5px;
+    border-radius:2px;
+}
+
+.second{
+    width:2px;
+    height:45px;
+    background:red;
+    margin-left:-1px;
+}
+
+.center-dot{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#000;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+
+@media(max-width:600px){
     .clock-grid{
         grid-template-columns:1fr;
     }
-
 }
-
 </style>
 </head>
+
 <body>
 
 <div class="container">
@@ -83,44 +136,103 @@ body{
 
     <div class="clock-grid">
 
+        <!-- India -->
         <div class="clock-card">
-            <div class="country">🇮🇳 India</div>
-            <div class="time" id="india-time"></div>
-            <div class="date" id="india-date"></div>
+            <div>
+                <div class="country">🇮🇳 India</div>
+                <div class="time" id="india-time"></div>
+                <div class="date" id="india-date"></div>
+            </div>
+
+            <div class="analog-clock" id="india-clock">
+                <div class="hand hour"></div>
+                <div class="hand minute"></div>
+                <div class="hand second"></div>
+                <div class="center-dot"></div>
+            </div>
         </div>
 
+        <!-- USA -->
         <div class="clock-card">
-            <div class="country">🇺🇸 USA</div>
-            <div class="time" id="usa-time"></div>
-            <div class="date" id="usa-date"></div>
+            <div>
+                <div class="country">🇺🇸 USA</div>
+                <div class="time" id="usa-time"></div>
+                <div class="date" id="usa-date"></div>
+            </div>
+
+            <div class="analog-clock" id="usa-clock">
+                <div class="hand hour"></div>
+                <div class="hand minute"></div>
+                <div class="hand second"></div>
+                <div class="center-dot"></div>
+            </div>
         </div>
 
+        <!-- UK -->
         <div class="clock-card">
-            <div class="country">🇬🇧 UK</div>
-            <div class="time" id="uk-time"></div>
-            <div class="date" id="uk-date"></div>
+            <div>
+                <div class="country">🇬🇧 UK</div>
+                <div class="time" id="uk-time"></div>
+                <div class="date" id="uk-date"></div>
+            </div>
+
+            <div class="analog-clock" id="uk-clock">
+                <div class="hand hour"></div>
+                <div class="hand minute"></div>
+                <div class="hand second"></div>
+                <div class="center-dot"></div>
+            </div>
         </div>
 
+        <!-- Japan -->
         <div class="clock-card">
-            <div class="country">🇯🇵 Japan</div>
-            <div class="time" id="japan-time"></div>
-            <div class="date" id="japan-date"></div>
+            <div>
+                <div class="country">🇯🇵 Japan</div>
+                <div class="time" id="japan-time"></div>
+                <div class="date" id="japan-date"></div>
+            </div>
+
+            <div class="analog-clock" id="japan-clock">
+                <div class="hand hour"></div>
+                <div class="hand minute"></div>
+                <div class="hand second"></div>
+                <div class="center-dot"></div>
+            </div>
         </div>
 
+        <!-- Australia -->
         <div class="clock-card">
-            <div class="country">🇦🇺 Australia</div>
-            <div class="time" id="aus-time"></div>
-            <div class="date" id="aus-date"></div>
+            <div>
+                <div class="country">🇦🇺 Australia</div>
+                <div class="time" id="aus-time"></div>
+                <div class="date" id="aus-date"></div>
+            </div>
+
+            <div class="analog-clock" id="aus-clock">
+                <div class="hand hour"></div>
+                <div class="hand minute"></div>
+                <div class="hand second"></div>
+                <div class="center-dot"></div>
+            </div>
         </div>
 
+        <!-- France -->
         <div class="clock-card">
-            <div class="country">🇫🇷 France</div>
-            <div class="time" id="france-time"></div>
-            <div class="date" id="france-date"></div>
+            <div>
+                <div class="country">🇫🇷 France</div>
+                <div class="time" id="france-time"></div>
+                <div class="date" id="france-date"></div>
+            </div>
+
+            <div class="analog-clock" id="france-clock">
+                <div class="hand hour"></div>
+                <div class="hand minute"></div>
+                <div class="hand second"></div>
+                <div class="center-dot"></div>
+            </div>
         </div>
 
     </div>
-
 </div>
 
 <script>
@@ -144,51 +256,60 @@ function updateClock(timeZone,timeId,dateId){
         day:'numeric'
     });
 
-    document.getElementById(timeId).innerText = time;
-    document.getElementById(dateId).innerText = date;
+    document.getElementById(timeId).innerText=time;
+    document.getElementById(dateId).innerText=date;
+}
+
+function updateAnalogClock(timeZone,clockId){
+
+    const now = new Date();
+
+    const zoned = new Date(
+        now.toLocaleString("en-US",{timeZone})
+    );
+
+    const h = zoned.getHours()%12;
+    const m = zoned.getMinutes();
+    const s = zoned.getSeconds();
+
+    const hourDeg = h * 30 + m * 0.5;
+    const minuteDeg = m * 6 + s * 0.1;
+    const secondDeg = s * 6;
+
+    const clock = document.getElementById(clockId);
+
+    clock.querySelector(".hour").style.transform =
+        `translateX(-50%) rotate(${hourDeg}deg)`;
+
+    clock.querySelector(".minute").style.transform =
+        `translateX(-50%) rotate(${minuteDeg}deg)`;
+
+    clock.querySelector(".second").style.transform =
+        `translateX(-50%) rotate(${secondDeg}deg)`;
 }
 
 function updateAllClocks(){
 
-    updateClock(
-        "Asia/Kolkata",
-        "india-time",
-        "india-date"
-    );
+    updateClock("Asia/Kolkata","india-time","india-date");
+    updateAnalogClock("Asia/Kolkata","india-clock");
 
-    updateClock(
-        "America/New_York",
-        "usa-time",
-        "usa-date"
-    );
+    updateClock("America/New_York","usa-time","usa-date");
+    updateAnalogClock("America/New_York","usa-clock");
 
-    updateClock(
-        "Europe/London",
-        "uk-time",
-        "uk-date"
-    );
+    updateClock("Europe/London","uk-time","uk-date");
+    updateAnalogClock("Europe/London","uk-clock");
 
-    updateClock(
-        "Asia/Tokyo",
-        "japan-time",
-        "japan-date"
-    );
+    updateClock("Asia/Tokyo","japan-time","japan-date");
+    updateAnalogClock("Asia/Tokyo","japan-clock");
 
-    updateClock(
-        "Australia/Sydney",
-        "aus-time",
-        "aus-date"
-    );
+    updateClock("Australia/Sydney","aus-time","aus-date");
+    updateAnalogClock("Australia/Sydney","aus-clock");
 
-    updateClock(
-        "Europe/Paris",
-        "france-time",
-        "france-date"
-    );
+    updateClock("Europe/Paris","france-time","france-date");
+    updateAnalogClock("Europe/Paris","france-clock");
 }
 
 updateAllClocks();
-
 setInterval(updateAllClocks,1000);
 
 </script>

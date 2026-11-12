@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>World Clock</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    background:#f5f5f5;
+    padding:30px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+}
+
+.header{
+    background:#eaeaea;
+    border:2px solid #333;
+    padding:15px;
+    font-size:24px;
+    font-weight:bold;
+}
+
+.clock-grid{
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.clock-card{
+    border:1px solid #333;
+    background:white;
+    min-height:140px;
+    padding:20px;
+}
+
+.country{
+    font-size:22px;
+    font-weight:bold;
+    margin-bottom:10px;
+    color:#1e293b;
+}
+
+.time{
+    font-size:28px;
+    font-weight:bold;
+    color:#2563eb;
+}
+
+.date{
+    margin-top:10px;
+    color:#666;
+    font-size:15px;
+}
+
+@media(max-width:600px){
+
+    .clock-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        🌍 World Clock
+    </div>
+
+    <div class="clock-grid">
+
+        <div class="clock-card">
+            <div class="country">🇮🇳 India</div>
+            <div class="time" id="india-time"></div>
+            <div class="date" id="india-date"></div>
+        </div>
+
+        <div class="clock-card">
+            <div class="country">🇺🇸 USA</div>
+            <div class="time" id="usa-time"></div>
+            <div class="date" id="usa-date"></div>
+        </div>
+
+        <div class="clock-card">
+            <div class="country">🇬🇧 UK</div>
+            <div class="time" id="uk-time"></div>
+            <div class="date" id="uk-date"></div>
+        </div>
+
+        <div class="clock-card">
+            <div class="country">🇯🇵 Japan</div>
+            <div class="time" id="japan-time"></div>
+            <div class="date" id="japan-date"></div>
+        </div>
+
+        <div class="clock-card">
+            <div class="country">🇦🇺 Australia</div>
+            <div class="time" id="aus-time"></div>
+            <div class="date" id="aus-date"></div>
+        </div>
+
+        <div class="clock-card">
+            <div class="country">🇫🇷 France</div>
+            <div class="time" id="france-time"></div>
+            <div class="date" id="france-date"></div>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+function updateClock(timeZone,timeId,dateId){
+
+    const now = new Date();
+
+    const time = now.toLocaleTimeString("en-US",{
+        timeZone:timeZone,
+        hour:'2-digit',
+        minute:'2-digit',
+        second:'2-digit'
+    });
+
+    const date = now.toLocaleDateString("en-US",{
+        timeZone:timeZone,
+        weekday:'long',
+        year:'numeric',
+        month:'long',
+        day:'numeric'
+    });
+
+    document.getElementById(timeId).innerText = time;
+    document.getElementById(dateId).innerText = date;
+}
+
+function updateAllClocks(){
+
+    updateClock(
+        "Asia/Kolkata",
+        "india-time",
+        "india-date"
+    );
+
+    updateClock(
+        "America/New_York",
+        "usa-time",
+        "usa-date"
+    );
+
+    updateClock(
+        "Europe/London",
+        "uk-time",
+        "uk-date"
+    );
+
+    updateClock(
+        "Asia/Tokyo",
+        "japan-time",
+        "japan-date"
+    );
+
+    updateClock(
+        "Australia/Sydney",
+        "aus-time",
+        "aus-date"
+    );
+
+    updateClock(
+        "Europe/Paris",
+        "france-time",
+        "france-date"
+    );
+}
+
+updateAllClocks();
+
+setInterval(updateAllClocks,1000);
+
+</script>
+
+</body>
+</html>
